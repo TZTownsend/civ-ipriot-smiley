@@ -109,60 +109,68 @@ python3 main.py
 
 1. Examine the code for the `smiley.py` file and provide  an example of a variable of each of the following types and their corresponding values (`_` should be replaced with the appropriate values):
 
-   | Type                    | name           | value           |
-   | ----------              |----------------|-----------------|
-   | built-in primitive type | dimmed         | True            |
-   | built-in composite type | WHITE          | (255, 255, 255) |
-   | user-defined type       | self.sense_hat | SenseHat()      |
+   | Type                    | name   | value           |
+   |-------------------------|--------|-----------------|
+   | built-in primitive type | dimmed | True            |
+   | built-in composite type | WHITE  | (255, 255, 255) |
+   | user-defined type       | Smiley | Smiley          |
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
-   | Object                   | Type                  |
-   | ------------             |-----------------------|
-   | self.pixels              | list (of tuples)      |
-   | A member of self.pixels  | tuple (of three ints) |
-   | self                     | Smiley                |
+   | Object                  | Type                  |
+   |-------------------------|-----------------------|
+   | self.pixels             | list (of tuples)      |
+   | A member of self.pixels | tuple (of three ints) |
+   | self                    | Smiley                |
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
-   | Control Flow | File      | First line | Line range |
-   | ------------ |-----------| --------- |------------|
-   |  sequence    | smiley.py | Y = self.YELLOW | 15 - 26    |
-   |  selection   | sad.py    | if wide_open:  | 26 - 29    |
-   |  iteration   | happy.py  | for pixel in mouth: | 21 - 22    |
+   | Control Flow | File      | First line          | Line range |
+   |--------------|-----------|---------------------|------------|
+   | sequence     | smiley.py | Y = self.YELLOW     | 15 - 26    |
+   | selection    | sad.py    | if wide_open:       | 26 - 29    |
+   | iteration    | happy.py  | for pixel in mouth: | 21 - 22    |
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
-   | Type                    | Used?     | Example                       |
-   | ----------------------- |-----------|-------------------------------|
-   | int                     | happy.py  | line 20: mouth = list of ints |
-   | float                   | happy.py  | line 33: delay=0.25           |
-   | str                     | sad.py    | line 13: Draws the mouth feature on a smiley                     |
-   | bool                    | smiley.py | line 28: dimmed=True          |
+   | Type  | Used?     | Example                                      |
+   |-------|-----------|----------------------------------------------|
+   | int   | happy.py  | line 20: mouth = list of ints                |
+   | float | happy.py  | line 33: delay=0.25                          |
+   | str   | sad.py    | line 13: Draws the mouth feature on a smiley |
+   | bool  | smiley.py | line 28: dimmed=True                         |
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
-> `WHITE` is a class variable and is the same for all instances of the 
-> class. Changing `WHITE` will affect all Smileys.
+> `WHITE` is a class variable and can be accessed by the class and by 
+> instances of the class.  It will be the same for all instances of the 
+> class and for any created subclasses. Changing the value of `WHITE` will 
+> affect all Smileys instantiated after the change and all subclasses of 
+> Smileys. So any Smileys or subclass of Smileys will use the same colour 
+> settings when using WHITE.
 > `pixels` is an instance variable (attribute) and is assigned when a class 
-> is instantiated using the `__init__` method.  The pixels of a specific 
-> instance may be updated or changed without affecting other instances of 
-> Smileys as the attribute is linked to the instance/self.
+> is instantiated using the `__init__` method.  The `pixels` attribute is 
+> defined by an instance of the Class and not by the class 
+> itself. The value for `pixels` may be set for each instance of a Smiley 
+> or subclass of Smiley so that they can have different colours as the 
+> attribute is linked to the instance/self.
 >
 
 6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
    1. What is the purpose of a constructor (in general) and this one (in particular)?
 
-   > A constructor enables the instantiation of a class to create an 
-   > instance/object of that class.  The Happy class constructor 
-   > creates an instance of a Happy that inherits from the Smiley and the Blinkable classes.  
+   > A constructor enables the initialisation of a new instance of a class.  
+   > The Happy class constructor results in an instance of a Happy which is 
+   > a subclass of a Smiley.
    >
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
 
-   > The Happy constructor initialises and then calls the `super` method on the Smiley class. 
-   > The new instance of class happy will have the attributes of a Smiley 
-   > and the additional attributes of a Happy.
+   > When the Happy class constructor initialises a new instance of the Happy 
+   > class it calls the `super` method on the Smiley class. This results in 
+   > the creation of a Happy with a SenseHat and with pixels set to the same
+   > values of the parent Smiley Class (ie YELLOW face pixels with BLANK 
+   > corners). It then calls the Happy class method draw_mouth and draw_eyes which changes the value of some of the pixels of the new instance to create a mouth shape specific to the Happy subclass of Smiley.
    >
 
 ### Code style
@@ -171,16 +179,19 @@ python3 main.py
    
 > The code style used in the code is PEP8.  
 > It is likely to be the same as the code style used in the SenseHat 
-> because the SenseHat runs python code and PEP8 is the python code style.
+> because the SenseHat module name `sense_hat` is snake_case, the class 
+> name `SenseHat` is PascalCase, and the `sense_hat` attribute is also 
+> snake_case, and this follows PEP8 convention.
 
 2. List three aspects of this convention you see applied in the code.
 
-> Source: https://pep8.org and https://github.com/NM-TAFE/ipriot-nms-org-template/blob/main/org/code-style-guide.md
+> Sources: https://pep8.org and https://github.
+> com/NM-TAFE/ipriot-nms-org-template/blob/main/org/code-style-guide.md
 > - Use of four spaces per indentation level.
 > - Method definitions inside a class are surrounded by a single blank line. 
 > Use of blank lines in functions, to indicate logical sections.
-> - Modules, functions and variables have lower case names. Class names use 
-> CamelCase. Constants use all capital letters.
+> - Modules, methods, attributes, and instance names have lower case names 
+    > using snake_case. Class names use CapWords. Constants in ALLCAPS.
 >
 
 3. Give two examples of organizational documentation in the code.
@@ -189,7 +200,7 @@ python3 main.py
     > description of the `dim_display` attribute.  The information in this 
     > docstring is available when the smiley module is imported elsewhere 
     > (eg to the happy module) by calling `help(Smiley.dim_display)`.
-> - Use of comments and comments blocks eg in main.py there is a comment 
+> - Use of comments and comment blocks eg in main.py there is a comment 
     > block that gives instructions on when lines of code should be 
     > uncommented (and thereby executed when the code is run).
 >
@@ -202,19 +213,34 @@ python3 main.py
   
   Use the following table for your answers:
 
-| Class Name | Super or Sub? | Direct parent(s) |
-| ---------- | ------------- | ---------------- |
-| NotReal    | Sub           | NotRealParent    |
-|   ...      |   ...         |      ...         |
+| Class Name | Super or Sub? | Direct parent(s)  |
+|------------|---------------|-------------------|
+| Happy      | Sub           | Smiley, Blinkable |
+| Smiley     | Both          | object            |
+| SenseHat   | Sub           | object, Smiley    |
+| Sad        | Sub           | Smiley            |
+| Blinkable  | Both          | ABC               |
+| ABC        | Both          | object?           |
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
-> Your answer here
->
+> Abstraction simplifies code by "hiding away" the complexity of the 
+> implementation details. The Smiley class in the project demonstrates 
+> abstraction as it takes the details of creating the SenseHat and the 
+> basic Smiley face and enables subclasses of Smileys to be created without 
+> needing to know those details. The Smiley class itself is an abstract 
+> class as you would not create an instance of a Smiley without a facial 
+> expression (and those details are implemented in subclasses of Smileys).
+> The main.py file further shows abstraction by enabling the creation of a 
+> Happy Smiley that blinks in just a few lines of code that don't show any 
+> of the implementation details.
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-> Your answer here
+> Inheritance.  In this project Inheritance is used to enable subclasses of 
+> Smileys eg Happy and Sad to each have a SenseHat and share the same shape 
+> and colour as each other without the need to copy and paste or rewrite 
+> the code in each of these modules.
 >
 
 ### Compare and contrast classes
