@@ -225,22 +225,20 @@ python3 main.py
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
 > Abstraction simplifies code by "hiding away" the complexity of the 
-> implementation details. The Smiley class in the project demonstrates 
-> abstraction as it takes the details of creating the SenseHat and the 
-> basic Smiley face and enables subclasses of Smileys to be created without 
-> needing to know those details. The Smiley class itself is an abstract 
-> class as you would not create an instance of a Smiley without a facial 
-> expression (and those details are implemented in subclasses of Smileys).
-> The main.py file further shows abstraction by enabling the creation of a 
-> Happy Smiley that blinks in just a few lines of code that don't show any 
-> of the implementation details.
+> implementation details. The Blinkable class in the project demonstrates 
+> abstraction as it takes the details of blink method and enables it be be 
+> implemented in different ways by different subclasses. If a subclass 
+> of smiley has implemented the Blinkable interface you can make that 
+> subclass blink simply by calling the blink method without needing to know 
+> the implementation details for that particular subclass of smiley.
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-> Inheritance.  In this project Inheritance is used to enable subclasses of 
-> Smileys eg Happy and Sad to each have a SenseHat and share the same shape 
-> and colour as each other without the need to copy and paste or rewrite 
-> the code in each of these modules.
+> Deriving from base classes is called inheritance.  In this project 
+> inheritance is used to enable code reuse in subclasses of Smileys ie 
+> Happy and Sad. Subclasses of Smiley each have a SenseHat and share the 
+> same shape and colour as each other without the need to copy and paste or 
+> rewrite the code for each new subclass/type of Smiley.
 >
 
 ### Compare and contrast classes
@@ -248,16 +246,27 @@ python3 main.py
 Compare and contrast the classes Happy and Sad.
 
 1. What is the key difference between the two classes?
-   > Your answer here
+   > The Happy class has a blink method (implemented via the Blinkable 
+   > interface). The Sad class does not have a blink method. Therefore 
+   > Happy Smileys can blink and Sad Smileys cannot blink.
    >
 2. What are the key similarities?
-   > Your answer here
+   > Both the Happy and Sad classes inherit from Smiley and share the same 
+   > Smiley shape and colour and have a SenseHat enabling the display of 
+   > smiley objects. They both have their own implementations of draw.mouth 
+   > and draw.eyes methods.
    >
 3. What difference stands out the most to you and why?
-   > Your answer here
+   > The lack of inheritance of the Blinkable interface by the Sad Smiley. 
+   > It seems like the blink function is something that you would want all 
+   > Smileys to be able to do and the Sad Smiley is missing this method.  
+   > If the Blinkable interface had been inherited by Sad then it would 
+   > have required the blink method to be implemented.
    >
 4. How does this difference affect the functionality of these classes
-   > Your answer here
+   > Some Smileys are able to blink and some are not able to and it is not 
+   > known until you look at the code or execute the program which Smileys 
+   > can blink and which cannot.
    >
 
 ### Where is the Sense(Hat) in the code?
