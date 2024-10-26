@@ -272,13 +272,24 @@ Compare and contrast the classes Happy and Sad.
 ### Where is the Sense(Hat) in the code?
 
 1. Which class(es) utilize the functionality of the SenseHat?
-   > Your answer here
+   > Smileys and classes that inherit from Smiley (ie Smiley subclasses: 
+   > Happy and Sad).
    >
 2. Which of these classes directly interact with the SenseHat functionalities?
-   > Your answer here
+   > None of them.  Interactions with the SenseHat are done via the 
+   > SenseHat instance that each Smiley has.  For example: the 
+   > dim_display method in the Smiley class calls the SenseHat class low_light 
+   > method on the Smiley instance's SenseHat instance.
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here
+   > Hiding of the SenseHat protects instances of the SenseHat from being 
+   > modified outside of the class.  This means that when changes are made 
+   > to the SenseHat's state (ie it's attributes) they are done within the 
+   > class and so this protects against changes being made that are 
+   > incompatible with a SenseHat object (for example maybe trying to change 
+   > the pixel settings to something other than rgb values).  Encapsulation 
+   > of the SenseHat module also means it can be tested independently of 
+   > the Smileys which can help with isolation of bugs in the program.
    >
 
 ### Sad Smileys Can’t Blink (Or Can They?)
