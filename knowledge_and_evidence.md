@@ -348,23 +348,23 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   1. **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
 
-     > Your answer here
+     > Blinkable is an Abstract Base Class.
 
   2. **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
-  > Your answer here
+  > Blinkable is an interface. It has an abstract method, and no concrete methods and the name ends in the suffix -able.
 
   3. **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
 
-  > Your answer here
+  > Polymorphism - the implementation of the blink method can be different for each subclass that inherits the Blinkable interface.
 
   4. **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
 
-  > Your answer here
+  > The Sad Smiley could have had the blink method implemented without the use of Blinkable (ie removing the inheritance of Blinkable still leaves the blink method and will result in the same display to the SenseHat).  The inheritance of Blinkable just meant that the blink method HAD to be implemented in the Sad class.  But all that was needed in order for the Sad Smiley to be able to blink was a blink method.
 
   5. **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
 
-  > Your answer here
+  > This is known as Duck Typing. The focus of Duck Typing is on what an object can do rather than what the type of the object is. In statically typed languages types are much more important as the compiler needs to know that the specific types can all support the method. In Python all that is needed is for an object to have the method blink (regardless of the class/type) and the object will blink.  In a statically typed language the compiler would specifically need to know that a Sad can blink, and a Happy can blink.
 
   ***
 
