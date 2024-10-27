@@ -93,7 +93,7 @@ Address the following tasks and questions based on the code provided in this rep
 3. Run the project locally by executing the `main.py` file
 4. Evidence this by providing screenshots of the project directory structure and the output of the `main.py` file
 
-![Local Execution](screenshots/screenshot2_1.png)
+![Local Execution](screenshots/local_execution.png)
 
 
 If you are running on a Raspberry Pi, you can use the following command to run the project and then screenshot the result:
@@ -277,9 +277,11 @@ Compare and contrast the classes Happy and Sad.
    >
 2. Which of these classes directly interact with the SenseHat functionalities?
    > None of them.  Interactions with the SenseHat are done via the 
-   > SenseHat instance that each Smiley has.  For example: the 
-   > dim_display method in the Smiley class calls the SenseHat class low_light 
-   > method on the Smiley instance's SenseHat instance.
+   > SenseHat instance that each Smiley has. The show method in the 
+   > Smiley class calls the SenseHat class set_pixels method on the Smiley 
+   > instance's SenseHat instance. The dim_display method in the 
+   > Smiley class calls the SenseHat class low_light method on the Smiley 
+   > instance's SenseHat instance.
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
    > Hiding of the SenseHat protects instances of the SenseHat from being 
@@ -300,22 +302,22 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> Your answer here
+> No.  If the author believed every Smiley should be able to blink then they would have implemented an abstract method into the Smiley class so that a blink method would be required to be implemented with the creation of all new Smileys. 
 >
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> Your answer here
+> No.  If the author expected all Smileys to blink in the same way they would have made the blink method in the Blinkable class a concrete method but they have made it an abstract method so that the method can be implemented in different ways by subclasses that inherit this interface.
 >
 
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> Your answer here
+> Polymorphism allows for the blink method to be implemented in different ways for different subclasses of smileys. Currently, the Sad Smiley does not have a blink method but this method could be added to the Sad Smiley using a similar implementation as the Happy smiley via inheritance with the Blinkable interface, or it could be done with a Sad class method specific to Sad smileys.  If a blink method was implemented for the Sad smiley then blink could be called for both Happy and Sad smileys and they would both be able to blink but they might do it in different ways.
 >
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> Your answer here
+> Happy inherits the blink interface from Blinkable.  Inheriting this interface requires that the abstract method blink be implemented in the Happy class.  The specifics of how blink is implemented by subclasses that inherit Blinkable may be unique for each subclass but after it is implemented the method is called in the same way for each subclass, ie by calling the method blink.
 >
 1. **Implement Blink in Sad Class:**
 
@@ -338,7 +340,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
 - Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
 
-  > Your answer here
+  > I initially forgot to import the time module into the sad module resulting in a NameError as time was not defined in this module.  This resulted in the Sad Smiley being unable to complete the blink method.
 
   ### If It Walks Like a Duck…
 
