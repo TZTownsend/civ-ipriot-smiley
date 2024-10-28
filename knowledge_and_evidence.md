@@ -389,7 +389,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   3. **Simple Method to Change Colors:**
   4. What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
-     > Change the value of the YELLOW variable in the Smiley class to (0, 255, 0). This will then carry through to the draw_eyes methods in the Happy and Sad Smiley subclasses so that the eye colours are also green. It's a terrible idea as the name of the variable will no longer match with the output on the SenseHat but it will get the job done. 
+     > Change the value of the YELLOW variable in the Smiley class to (0, 255, 0). This change will mean I don't need to change the draw_eyes methods in the Happy and Sad Smiley subclasses which are coded to use the YELLOW variable. It's a terrible idea as the name of the variable will no longer match with the output on the SenseHat but it will get the job done very easily. 
 
   Here's a revised version of the "Flexible Colors – Step 1" section for the smiley project, incorporating your specifications for formatting and content updates:
 
