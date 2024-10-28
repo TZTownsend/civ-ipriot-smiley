@@ -364,7 +364,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   5. **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
 
-  > This is known as Duck Typing. The focus of Duck Typing is on what an object can do rather than what the type of the object is. In statically typed languages types are much more important as the compiler needs to know that the specific types can all support the method. In Python all that is needed is for an object to have the method blink (regardless of the class/type) and the object will blink.  In a statically typed language the compiler would specifically need to know that a Sad can blink, and a Happy can blink.
+  > This is known as Duck Typing. The focus of Duck Typing is on what an object can do rather than what the type of the object is. In statically typed languages types are much more important as the compiler needs to know that the specific types can all support the method. In Python all that is needed is for an object to have the method blink (regardless of the class/type) and the object will blink.  In a statically typed language the compiler would specifically need to know that the Sad can blink, and the Happy class can blink.
 
   ***
 
@@ -377,19 +377,19 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   1. **Defined Colors and Their Location:**
 
      1. Which colors are defined and in which class(s)?
-        > Your answer here
+        >Smiley class: colours (WHITE, GREEN, RED, YELLOW, BLANK). 
      2. What type of variables hold these colors? Are the values expected to change during the program's execution? Explain your answer.
-        > Your answer here
+        > The variable names of the colours (WHITE, GREEN, RED, YELLOW, BLANK) are capitalised which communicates their use as CONSTANTS therefore their values are not expected to change in the course of the program's execution. They value of the colour variables are tuples comprised of three integers.
      3. Add the color blue to the appropriate class using the appropriate format and values.
 
   2. **Usage of Color Variables:**
 
      1. In which classes are the color variables used?
-        > Your answer here
+        >Smiley class: Smiley complexion (YELLOW) and background (BLANK) pixels. Happy and Sad classes: mouth and eye colours.
 
   3. **Simple Method to Change Colors:**
   4. What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
-     > Your answer here
+     > Change the value of the YELLOW variable in the Smiley class to (0, 255, 0). This will then carry through to the draw_eyes methods in the Happy and Sad Smiley subclasses so that the eye colours are also green. It's a terrible idea as the name of the variable will no longer match with the output on the SenseHat but it will get the job done. 
 
   Here's a revised version of the "Flexible Colors – Step 1" section for the smiley project, incorporating your specifications for formatting and content updates:
 
