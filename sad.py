@@ -28,7 +28,7 @@ class Sad(Smiley, Blinkable):
             if wide_open:
                 eyes = self.BLANK
             else:
-                eyes = self.complexion()
+                eyes = self.my_complexion
             self.pixels[pixel] = eyes
 
     def blink(self, delay=0.25):
