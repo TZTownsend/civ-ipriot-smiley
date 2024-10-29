@@ -6,15 +6,15 @@ import time
 
 from happy import Happy
 from sad import Sad
+from angry import Angry
 
 def main():
-    smiley = Sad()
+    smiley = Angry()
 
     smiley.show()
 
     time.sleep(1)
 
-    smiley.blink()
 
 if __name__ == '__main__':
     ############################################################
